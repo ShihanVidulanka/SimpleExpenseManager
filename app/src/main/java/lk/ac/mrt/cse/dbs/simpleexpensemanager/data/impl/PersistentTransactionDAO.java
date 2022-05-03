@@ -60,10 +60,12 @@ public class PersistentTransactionDAO implements TransactionDAO {
 
         Cursor allTransactions = dbhelperObj.getAlltransactios();
 
+        //if no transactions return empty list
         if (!allTransactions.moveToFirst()){
             return transactionLis;
         }
 
+        //get all transactions into a list
         do {
             Date transactionDate = null;
             String stringDate = allTransactions.getString(1);
@@ -90,10 +92,10 @@ public class PersistentTransactionDAO implements TransactionDAO {
     @Override
     public List<Transaction> getPaginatedTransactionLogs(int limit) {
         List<Transaction> transactionLis = getAllTransactionLogs();
-
+        int size = transactionLis.size();
         if (limit >= transactionLis.size()) {
             return transactionLis;
         }
-        return transactionLis.subList((limit-transactionLis.size()), transactionLis.size());
+        return transactionLis.subList(size-limit, size);
     }
 }
