@@ -1,0 +1,4 @@
+05-10 20:30:01.209  9652  9674 I TestRunner: started: testAddAccount(lk.ac.mrt.cse.dbs.simpleexpensemanager.ApplicationTest)
+05-10 20:30:01.220  9652  9674 W SQLiteLog: (28) double-quoted string literal: "INCOME"
+05-10 20:30:01.220  9652  9674 W SQLiteLog: (28) double-quoted string literal: "EXPENSE"
+05-10 20:30:01.233  9652  9674 I TestRunner: finished: testAddAccount(lk.ac.mrt.cse.dbs.simpleexpensemanager.ApplicationTest)
