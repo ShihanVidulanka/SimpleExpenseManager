@@ -22,11 +22,11 @@ public class PersistentExpenseManager extends ExpenseManager {
     public void setup() {
         DBHelper dbhelperObj = new DBHelper(context);
 
-        TransactionDAO persistentTransactionDAO = new PersistentTransactionDAO(dbhelperObj,context);
-        setTransactionsDAO(persistentTransactionDAO);
+        TransactionDAO TransactionDAO = new PersistentTransactionDAO(dbhelperObj,context);
+        setTransactionsDAO(TransactionDAO);
 
-        AccountDAO persistentAccountDAO = new PersistentAccountDAO(dbhelperObj, context);
-        setAccountsDAO(persistentAccountDAO);
+        AccountDAO AccountDAO = new PersistentAccountDAO(dbhelperObj, context);
+        setAccountsDAO(AccountDAO);
 
         // dummy data
 //        Account dummyAcct1 = new Account("12345A", "Yoda Bank", "Anakin Skywalker", 10000.0);

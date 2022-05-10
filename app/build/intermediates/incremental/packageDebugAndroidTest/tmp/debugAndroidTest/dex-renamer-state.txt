@@ -1,4 +1,4 @@
-#Tue May 10 23:58:28 IST 2022
+#Wed May 11 04:47:48 IST 2022
 base.0=D\:\\Acadomic\\Malli\\MORA ACA 2019\\ACA semester 4\\CS3042 - Database Systems\\SimpleExpenseManager\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeDexDebugAndroidTest\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

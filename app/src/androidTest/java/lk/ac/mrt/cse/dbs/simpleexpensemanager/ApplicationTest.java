@@ -27,15 +27,23 @@ import androidx.test.core.app.ApplicationProvider;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.control.ExpenseManager;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.control.PersistentExpenseManager;
+import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.DBHelper;
+import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.exception.InvalidAccountException;
+import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.impl.PersistentTransactionDAO;
+import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.ExpenseType;
+import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.Transaction;
 
 /**
  * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
  */
-public class ApplicationTest{
+public class ApplicationTest {
     private static ExpenseManager expenseManager;
 
     @Before
@@ -49,5 +57,19 @@ public class ApplicationTest{
         expenseManager.addAccount("1234567A", "Yoda Bank", "Anakin Skywalker", 10000.0);
         List<String> Accounts = expenseManager.getAccountNumbersList();
         assertTrue(Accounts.contains("1234567A"));
+    }
+
+    @Test
+    public void testAddTransactionExpense() throws ParseException, InvalidAccountException {
+
+        String Account = "190646t";
+        Double amount = 2000.00;
+
+        expenseManager.addAccount(Account, "BOC", "Sihan Vidulanka", 8000);
+        double availableBalance = expenseManager.getAccountsDAO().getAccount(Account).getBalance();
+        expenseManager.updateAccountBalance(Account, 11, 05, 2022, ExpenseType.EXPENSE, Double.toString(amount));
+        double updatedBalance = expenseManager.getAccountsDAO().getAccount(Account).getBalance();
+        double trueValue = availableBalance - amount;
+        assertTrue(updatedBalance == trueValue);
     }
 }
