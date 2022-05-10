@@ -52,6 +52,7 @@ public class ApplicationTest {
         expenseManager.addAccount("123457A", "Yoda Bank", "Anakin Skywalker", 10000.0);
         List<String> Accounts = expenseManager.getAccountNumbersList();
         assertTrue(Accounts.contains("1234567A"));
+        //
     }
 
 }
