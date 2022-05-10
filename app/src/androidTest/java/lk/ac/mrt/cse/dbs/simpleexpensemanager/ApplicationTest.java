@@ -16,43 +16,14 @@
 
 package lk.ac.mrt.cse.dbs.simpleexpensemanager;
 
-import static junit.framework.TestCase.assertTrue;
-
-import android.content.Context;
-
-import androidx.test.core.app.ApplicationProvider;
-
-import org.junit.Before;
-import org.junit.Test;
-
-import java.util.Date;
-import java.util.List;
-
-import lk.ac.mrt.cse.dbs.simpleexpensemanager.control.ExpenseManager;
-import lk.ac.mrt.cse.dbs.simpleexpensemanager.control.PersistentExpenseManager;
-import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.DBHelper;
-import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.TransactionDAO;
-import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.impl.PersistentTransactionDAO;
-import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.ExpenseType;
+import android.app.Application;
+import android.test.ApplicationTestCase;
 
 /**
  * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
  */
-public class ApplicationTest {
-    private static ExpenseManager expenseManager;
-
-    @Before
-    public void setup() {
-        Context context = ApplicationProvider.getApplicationContext();
-        expenseManager = new PersistentExpenseManager(context);
+public class ApplicationTest extends ApplicationTestCase<Application> {
+    public ApplicationTest() {
+        super(Application.class);
     }
-
-    @Test
-    public void testAddAccount() {
-        expenseManager.addAccount("123457A", "Yoda Bank", "Anakin Skywalker", 10000.0);
-        List<String> Accounts = expenseManager.getAccountNumbersList();
-        assertTrue(Accounts.contains("1234567A"));
-        //
-    }
-
 }
