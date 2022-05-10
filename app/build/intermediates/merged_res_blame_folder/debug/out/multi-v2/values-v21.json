@@ -65,10 +65,10 @@
                     "from": {
                         "startLines": "18",
                         "startColumns": "4",
-                        "startOffsets": "722",
+                        "startOffsets": "704",
                         "endLines": "23",
                         "endColumns": "12",
-                        "endOffsets": "1023"
+                        "endOffsets": "1000"
                     },
                     "to": {
                         "startLines": "6",
